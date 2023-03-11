@@ -1,10 +1,6 @@
 import React from "react";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import AboutPage from "./pages/AboutPage";
-import ErrorPage from "./pages/ErrorPage";
-import MainPage from "./pages/MainPage";
-import UserDetailsPage from "./pages/UserDetailsPage";
-import Users from "./users/Users";
+import Navbar from "./components/Navbar/Navbar";
+import AppRouter from "./router/AppRouter";
 
 // function App() {
 //   const [data, setData] = useState<null | {}>(null);
@@ -39,16 +35,8 @@ import Users from "./users/Users";
 const App = () => {
   return(
     <div>
-      <Link data-testid="main-link" to="/">Main</Link>{" "}
-      <Link data-testid="about-link" to="/about">About</Link>{" "}
-      <Link data-testid="users-link" to="/users">Users</Link>
-      <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/users" element={<Users/>}/>
-        <Route path="/users/:id" element={<UserDetailsPage />}/>
-        <Route path="/*" element={<ErrorPage/>}/>
-      </Routes>
+      <Navbar/>
+      <AppRouter/>
     </div>
   )
 }

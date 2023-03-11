@@ -18,7 +18,7 @@ const Users: React.FC<UsersProps> = () => {
   }, []);
 
   return (
-    <div>
+    <div data-testid="users-page">
       {users.map((user: any) => (
         <Link to={`/users/${user.id}`} key={user.id} data-testid="user-item">
           {user.name}
