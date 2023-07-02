@@ -22,4 +22,7 @@ describe('Several Value validation', () => {
   test('Less than the correct value', () => { 
     expect(validateValue(-1)).toBe(false);
   });
+  test('Not a number', () => {
+    expect(validateValue("sdf")).toBe(false);
+  })
 });
