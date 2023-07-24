@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -14,10 +15,21 @@ const Users = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      data-testid={"users-page"}
+    >
+      <ul>
       {
-        users.map(user => <div key={user.id} data-testid="user-item">{user.name}</div>)
+        users.map(user => <li key={user.id}>
+          <Link
+            to={`/users/${user.id}`}
+            data-testid="user-item"
+          >
+            {user.name}
+          </Link>
+        </li>)
       }
+      </ul>
     </div>
   );
 };
